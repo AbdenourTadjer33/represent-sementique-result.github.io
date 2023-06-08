@@ -1,0 +1,77 @@
+.btn-container {
+    text-align: center;
+}
+
+.table {
+    min-height: 300px;
+    width: 100%;
+}
+
+.container-table {
+    max-height: 250px;
+    max-width: 98%;
+    overflow-y: scroll;
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px #000;
+    text-align: start;
+}
+
+.container-result {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+
+@media screen and (max-width: 600px) {
+    .container-result {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
+
+.img img {
+    width: 100%;
+    margin-top: 40px;
+}

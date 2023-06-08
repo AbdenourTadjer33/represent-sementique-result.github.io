@@ -1,0 +1,343 @@
+{
+    "Speaker": [
+        ["equivalentClass", "Ne29b5b526ef04ffca0c333cda8a89250"],
+        ["subClassOf", "Person"],
+        ["type", "Class"]
+    ],
+    "Committee": [["type", "Class"]],
+    "award": [
+        ["inverseOf", "awardedby"],
+        ["range", "Award"],
+        ["type", "ObjectProperty"]
+    ],
+    "design": [
+        ["domain", "ACMSIGKDD"],
+        ["type", "ObjectProperty"],
+        ["range", "Deadline"],
+        ["inverseOf", "designedby"]
+    ],
+    "DeadlineAbstractSubmission": [
+        ["subClassOf", "Deadline"],
+        ["type", "Class"]
+    ],
+    "designedby": [
+        ["type", "ObjectProperty"],
+        ["domain", "Deadline"],
+        ["inverseOf", "design"],
+        ["range", "ACMSIGKDD"]
+    ],
+    "presentationedby": [
+        ["type", "ObjectProperty"],
+        ["domain", "Document"],
+        ["range", "Speaker"],
+        ["inverseOf", "presentation"]
+    ],
+    "Exhibitor": [
+        ["subClassOf", "Sponzor"],
+        ["type", "Class"]
+    ],
+    "submituntil": [
+        ["domain", "Document"],
+        ["type", "ObjectProperty"],
+        ["range", "Deadline"]
+    ],
+    "Date": [
+        ["range", "dateTime"],
+        ["type", "DatatypeProperty"],
+        ["domain", "Deadline"]
+    ],
+    "awardedby": [
+        ["type", "ObjectProperty"],
+        ["inverseOf", "award"],
+        ["domain", "Award"]
+    ],
+    "Sponzor": [
+        ["type", "Class"],
+        ["equivalentClass", "Ncf13837c405246059ddc76a07998e90d"]
+    ],
+    "obtain": [
+        ["domain", "Author"],
+        ["range", "Award"],
+        ["type", "ObjectProperty"]
+    ],
+    "Mainoffice": [
+        ["type", "Class"],
+        ["subClassOf", "Place"]
+    ],
+    "Name": [
+        ["range", "string"],
+        ["domain", "Person"],
+        ["type", "DatatypeProperty"]
+    ],
+    "Conferencehall": [
+        ["subClassOf", "Place"],
+        ["type", "Class"]
+    ],
+    "ACMSIGKDD": [
+        ["subClassOf", "Thing"],
+        ["subClassOf", "Nfb57c4b218944ebaaa84fef57b00ff49"],
+        ["type", "Class"],
+        ["subClassOf", "N4a985e38a9c144d690d849a894938650"],
+        ["subClassOf", "N6410a4d508d64a73965a351b76ce4f60"]
+    ],
+    "searchedby": [
+        ["range", "ACMSIGKDD"],
+        ["type", "ObjectProperty"],
+        ["inverseOf", "search"],
+        ["domain", "Sponzor"]
+    ],
+    "pay": [
+        ["domain", "Person"],
+        ["type", "ObjectProperty"],
+        ["inverseOf", "payedby"],
+        ["range", "Registrationfee"]
+    ],
+    "BestPaperAwardsCommittee": [
+        ["subClassOf", "Committee"],
+        ["type", "Class"]
+    ],
+    "Authorofpaperstudent": [
+        ["type", "Class"],
+        ["subClassOf", "N15284b4ceea945928a95fba9b763db79"],
+        ["subClassOf", "Author"]
+    ],
+    "PlatinumSupporter": [
+        ["subClassOf", "Sponzor"],
+        ["type", "Class"]
+    ],
+    "canstayin": [
+        ["domain", "Person"],
+        ["type", "ObjectProperty"],
+        ["range", "Place"]
+    ],
+    "Nameofconference": [
+        ["domain", "Conference"],
+        ["range", "string"],
+        ["type", "DatatypeProperty"]
+    ],
+    "Email": [
+        ["range", "string"],
+        ["type", "DatatypeProperty"],
+        ["domain", "Person"]
+    ],
+    "Deadline": [["type", "Class"]],
+    "notificationuntil": [
+        ["type", "ObjectProperty"],
+        ["range", "DeadlineAuthornotification"],
+        ["domain", "Author"]
+    ],
+    "Nameofsponsor": [
+        ["domain", "Sponzor"],
+        ["type", "DatatypeProperty"],
+        ["range", "string"]
+    ],
+    "OrganizingCommittee": [
+        ["type", "Class"],
+        ["subClassOf", "Committee"]
+    ],
+    "Organizator": [
+        ["subClassOf", "Person"],
+        ["type", "Class"]
+    ],
+    "Authorofpaper": [
+        ["type", "Class"],
+        ["subClassOf", "N7ce6b137bc78441189ad47a2bee4a3f2"],
+        ["subClassOf", "Nc2b55e1e007a456aa3815081a84fbf49"],
+        ["subClassOf", "Author"]
+    ],
+    "Nation": [
+        ["range", "string"],
+        ["domain", "Person"],
+        ["type", "DatatypeProperty"]
+    ],
+    "Person": [
+        ["equivalentClass", "Ncfdeb525fb7f45baa91659307c3fac23"],
+        ["subClassOf", "Nb1d5598f995c4c22a5161ddf1229f1fd"],
+        ["type", "Class"],
+        ["subClassOf", "Thing"]
+    ],
+    "Hotel": [
+        ["type", "Class"],
+        ["subClassOf", "Place"]
+    ],
+    "ProgramChair": [
+        ["subClassOf", "Organizator"],
+        ["type", "Class"]
+    ],
+    "BestStudentPaperSupporter": [
+        ["subClassOf", "Sponzor"],
+        ["type", "Class"]
+    ],
+    "Currency": [
+        ["domain", "Registrationfee"],
+        ["type", "DatatypeProperty"],
+        ["range", "string"]
+    ],
+    "Author": [
+        ["equivalentClass", "N143fb27498784563bc5218c8bf0b6c44"],
+        ["type", "Class"],
+        ["subClassOf", "Speaker"],
+        ["subClassOf", "N8e2f1917e87b46af8908bfb6eed7a703"]
+    ],
+    "Abstract": [
+        ["subClassOf", "Document"],
+        ["type", "Class"],
+        ["equivalentClass", "N5dce851dabda4f978014b1a9f197ae38"]
+    ],
+    "BestStudentPaperAward": [
+        ["type", "Class"],
+        ["subClassOf", "Award"]
+    ],
+    "search": [
+        ["domain", "ACMSIGKDD"],
+        ["type", "ObjectProperty"],
+        ["inverseOf", "searchedby"],
+        ["range", "Sponzor"]
+    ],
+    "presentation": [
+        ["range", "Document"],
+        ["inverseOf", "presentationedby"],
+        ["type", "ObjectProperty"],
+        ["domain", "Speaker"]
+    ],
+    "RegistrationNonMember": [
+        ["subClassOf", "Registrationfee"],
+        ["type", "Class"]
+    ],
+    "payedby": [
+        ["domain", "Registrationfee"],
+        ["inverseOf", "pay"],
+        ["type", "ObjectProperty"],
+        ["range", "Person"]
+    ],
+    "RegistrationSIGKDDMember": [
+        ["subClassOf", "Registrationfee"],
+        ["type", "Class"]
+    ],
+    "Endofconference": [
+        ["type", "DatatypeProperty"],
+        ["domain", "Conference"],
+        ["range", "dateTime"]
+    ],
+    "Fee": [["type", "Class"]],
+    "Startofconference": [
+        ["domain", "Conference"],
+        ["range", "dateTime"],
+        ["type", "DatatypeProperty"]
+    ],
+    "hold": [
+        ["type", "ObjectProperty"],
+        ["inverseOf", "holdedby"],
+        ["domain", "ACMSIGKDD"],
+        ["range", "Conference"]
+    ],
+    "RegistrationStudent": [
+        ["type", "Class"],
+        ["subClassOf", "Registrationfee"]
+    ],
+    "Cityofconference": [
+        ["type", "DatatypeProperty"],
+        ["domain", "Conference"],
+        ["range", "string"]
+    ],
+    "SilverSupporter": [
+        ["type", "Class"],
+        ["subClassOf", "Sponzor"]
+    ],
+    "submit": [
+        ["domain", "Author"],
+        ["range", "Paper"],
+        ["type", "ObjectProperty"]
+    ],
+    "ProgramCommittee": [
+        ["type", "Class"],
+        ["subClassOf", "Committee"]
+    ],
+    "RegistrationSIGMODMember": [
+        ["subClassOf", "Registrationfee"],
+        ["type", "Class"]
+    ],
+    "OrganizingCommitteemember": [
+        ["subClassOf", "Organizator"],
+        ["type", "Class"]
+    ],
+    "Document": [["type", "Class"]],
+    "GeneralChair": [
+        ["type", "Class"],
+        ["subClassOf", "Organizator"]
+    ],
+    "Review": [
+        ["subClassOf", "Document"],
+        ["type", "Class"]
+    ],
+    "GoldSupporter": [
+        ["subClassOf", "Sponzor"],
+        ["type", "Class"]
+    ],
+    "Price": [
+        ["domain", "Registrationfee"],
+        ["type", "DatatypeProperty"],
+        ["range", "int"]
+    ],
+    "Paper": [
+        ["subClassOf", "Document"],
+        ["type", "Class"],
+        ["equivalentClass", "Na9b482898f8749478e2decbe9263e313"]
+    ],
+    "Webmaster": [
+        ["subClassOf", "Organizator"],
+        ["type", "Class"]
+    ],
+    "Sponzorfee": [
+        ["subClassOf", "Fee"],
+        ["type", "Class"]
+    ],
+    "ProgramCommitteemember": [
+        ["type", "Class"],
+        ["subClassOf", "Organizator"]
+    ],
+    "DeadlinePaperSubmission": [
+        ["type", "Class"],
+        ["subClassOf", "Deadline"]
+    ],
+    "holdedby": [
+        ["range", "ACMSIGKDD"],
+        ["domain", "Conference"],
+        ["type", "ObjectProperty"],
+        ["inverseOf", "hold"]
+    ],
+    "BestResearchPaperAward": [
+        ["type", "Class"],
+        ["subClassOf", "Award"]
+    ],
+    "BronzeSupporter": [
+        ["type", "Class"],
+        ["subClassOf", "Sponzor"]
+    ],
+    "Award": [
+        ["equivalentClass", "N7088cd05db5f452a9c9cd2c82882b0dd"],
+        ["type", "Class"]
+    ],
+    "DeadlineAuthornotification": [
+        ["subClassOf", "Deadline"],
+        ["type", "Class"]
+    ],
+    "InvitedSpeaker": [
+        ["subClassOf", "Speaker"],
+        ["type", "Class"]
+    ],
+    "Listener": [
+        ["subClassOf", "Person"],
+        ["type", "Class"]
+    ],
+    "Registrationfee": [
+        ["subClassOf", "Fee"],
+        ["type", "Class"]
+    ],
+    "Conference": [["type", "Class"]],
+    "Place": [["type", "Class"]],
+    "BestApplicationsPaperAward": [
+        ["type", "Class"],
+        ["subClassOf", "Award"]
+    ]
+}

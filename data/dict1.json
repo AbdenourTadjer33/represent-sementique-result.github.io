@@ -1,0 +1,546 @@
+{
+    "http://cmt/MetaReviewer": [
+        [
+            "http://www.w3.org/2000/01/rdfschema/comment","A special type of Reviewer.  There can be any number of Reviewers for a given paper, but only one MetaReviewer.  The MetaReviewer can go over all the reviews submitted for the paper and submit their own review.  Questions for the MetaReviewer can be different from those for a normal Reviewer.  Their role is to ensure that the reviews are good and consistent. The decision to use MetaReviewers is optional, and must be set before paper assignment occurs."
+        ],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Reviewer"]
+    ],
+    "http://cmt/Decision": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Bid"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Conference"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/ProgramCommittee"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Person"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Preference"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Document"]
+    ],
+    "http://cmt/ProgramCommitteeMember": [
+        ["http://www.w3.org/2000/01/rdfschema/comment", "The Program Committee consists of all members of the conference except for Authors who are not also Reviewers."],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/AuthorNotReviewer"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/ConferenceMember"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Person"]
+    ],
+    "http://cmt/memberOfProgramCommittee": [
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/hasProgramCommitteeMember"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/ProgramCommittee"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/ProgramCommitteeMember"]
+    ],
+    "http://cmt/hasAuthor": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/writePaper"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Paper"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Author"]
+    ],
+    "http://cmt/Document": [
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Conference"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/ProgramCommittee"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Preference"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Person"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Decision"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Bid"]
+    ],
+    "http://cmt/Bid": [
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Conference"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/ProgramCommittee"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Preference"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Person"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Decision"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Document"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"]
+    ],
+    "http://cmt/readByReviewer": [
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Paper"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/readPaper"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Reviewer"]
+    ],
+    "http://cmt/writtenBy": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/writeReview"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Review"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Reviewer"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"]
+    ],
+    "http://cmt/ProgramCommittee": [
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Preference"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Document"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Bid"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Person"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Conference"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Decision"]
+    ],
+    "http://cmt/reviewCriteriaEnteredBy": [
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/enterReviewCriteria"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Conference"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Administrator"]
+    ],
+    "http://cmt/hasBid": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Bid"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Paper"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/InverseFunctionalProperty"]
+    ],
+    "http://cmt/assignReviewer": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Reviewer"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/assignedByAdministrator"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Administrator"]
+    ],
+    "http://cmt/Reviewer": [
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/ExternalReviewer"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/AuthorNotReviewer"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/ConferenceMember"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/User"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"]
+    ],
+    "http://cmt/startReviewerBidding": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Administrator"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/reviewerBiddingStartedBy"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Conference"]
+    ],
+    "http://cmt/email": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/DatatypeProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://www.w3.org/2001/XMLSchema/string"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Person"]
+    ],
+    "http://cmt/acceptPaper": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/acceptedBy"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Administrator"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/InverseFunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Paper"]
+    ],
+    "http://cmt/assignedByReviewer": [
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/assignExternalReviewer"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Reviewer"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/ExternalReviewer"]
+    ],
+    "http://cmt/acceptedBy": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Administrator"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/InverseFunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Paper"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/acceptPaper"]
+    ],
+    "http://cmt/addProgramCommitteeMember": [
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Administrator"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/InverseFunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/ProgramCommitteeMember"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/addedBy"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"]
+    ],
+    "http://cmt/Chairman": [
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Person"],
+        ["http://www.w3.org/2002/07/owl/equivalentClass", "N94998e25a8cf4c23a2898f39027a4f55"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"]
+    ],
+    "http://cmt/markConflictOfInterest": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Paper"],
+        [
+            "http://www.w3.org/2000/01/rdfschema/comment",
+            "In CMT terms, a \u2018Conflict of Interest\u2019 is an association between a specific Reviewer and a specific Paper that states there is a conflict of interest between that Reviewer and that paper. Conflicts can be marked by Authors (during paper submission) or by Reviewers (in Phase 2) or by Chairmen (in Phase 3).Based on that conflict, the reviewer will not be able to bid on the paper, be assigned to that paper (either automatically by the system or manually by a Chairman) or view review submissions for that paper."
+        ],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "Na1f95cfc17db4851a58191a860d4bdc0"]
+    ],
+    "http://cmt/paperAssignmentToolsRunBy": [
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Conference"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Administrator"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/runPaperAssignmentTools"]
+    ],
+    "http://cmt/assignExternalReviewer": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/InverseFunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/ExternalReviewer"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/assignedByReviewer"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Reviewer"]
+    ],
+    "http://cmt/AssociatedChair": [
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/ConferenceMember"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/ConferenceChair"]
+    ],
+    "http://cmt/detailsEnteredBy": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Administrator"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Conference"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/enterConferenceDetails"]
+    ],
+    "http://cmt/hasBeenAssigned": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Reviewer"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/assignedTo"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Paper"]
+    ],
+    "http://cmt/readByMetaReviewer": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/MetaReviewer"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Paper"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"]
+    ],
+    "http://cmt/acceptsHardcopySubmissions": [
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Conference"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/DatatypeProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://www.w3.org/2001/XMLSchema/boolean"]
+    ],
+    "http://cmt/setMaxPapers": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/ProgramCommitteeMember"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Administrator"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"]
+    ],
+    "http://cmt/rejectPaper": [
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/rejectedBy"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/InverseFunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Paper"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Administrator"]
+    ],
+    "http://cmt/paperID": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/DatatypeProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://www.w3.org/2001/XMLSchema/unsignedLong"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Paper"]
+    ],
+    "http://cmt/writeReview": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Review"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/InverseFunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Reviewer"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/writtenBy"]
+    ],
+    "http://cmt/Paper": [
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "N180708daafc7402b8c76e515105bdbf5"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "Ne66526681ac94253a7802a20d3a0c144"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Document"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Review"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "Nf2a575ab182d4c23a98980f47b99d78e"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "N9758e772c98c4fbf8ea96f6080bbbd0a"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"]
+    ],
+    "http://cmt/rejectedBy": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/rejectPaper"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Administrator"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Paper"]
+    ],
+    "http://cmt/hasConferenceMember": [
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Conference"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/ConferenceMember"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/memberOfConference"]
+    ],
+    "http://cmt/runPaperAssignmentTools": [
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/paperAssignmentToolsRunBy"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Administrator"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Conference"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"]
+    ],
+    "http://cmt/PaperFullVersion": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Paper"]
+    ],
+    "http://cmt/submitPaper": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Paper"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Author"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"]
+    ],
+    "http://cmt/paperAssignmentFinalizedBy": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Administrator"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/finalizePaperAssignment"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Conference"]
+    ],
+    "http://cmt/ProgramCommitteeChair": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/ProgramCommitteeMember"]
+    ],
+    "http://cmt/hasCoauthor": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Coauthor"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Paper"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/cowritePaper"]
+    ],
+    "http://cmt/addedBy": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/addProgramCommitteeMember"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/ProgramCommitteeMember"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Administrator"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"]
+    ],
+    "http://cmt/maxPapers": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/DatatypeProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://www.w3.org/2001/XMLSchema/int"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/ProgramCommitteeMember"]
+    ],
+    "http://cmt/Coauthor": [
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Author"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"]
+    ],
+    "http://cmt/printHardcopyMailingManifests": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/hardcopyMailingManifestsPrintedBy"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Administrator"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Conference"]
+    ],
+    "http://cmt/finalizePaperAssignment": [
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/paperAssignmentFinalizedBy"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Conference"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Administrator"]
+    ],
+    "http://cmt/Person": [
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Conference"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/ProgramCommittee"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Decision"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Preference"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Document"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Bid"]
+    ],
+    "http://cmt/ConferenceChair": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/AssociatedChair"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/ConferenceMember"]
+    ],
+    "http://cmt/assignedByAdministrator": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Reviewer"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Administrator"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/assignReviewer"]
+    ],
+    "http://cmt/writePaper": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/hasAuthor"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/InverseFunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Paper"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Author"]
+    ],
+    "http://cmt/Preference": [
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Person"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Decision"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Document"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Bid"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Conference"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/ProgramCommittee"]
+    ],
+    "http://cmt/Author": [
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/ConferenceMember"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/User"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"]
+    ],
+    "http://cmt/MetaReview": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Review"]
+    ],
+    "http://cmt/enterReviewCriteria": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Conference"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/reviewCriteriaEnteredBy"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Administrator"]
+    ],
+    "http://cmt/assignedTo": [
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Paper"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/hasBeenAssigned"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Reviewer"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"]
+    ],
+    "http://cmt/cowritePaper": [
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/hasCoauthor"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Paper"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Coauthor"]
+    ],
+    "http://cmt/enableVirtualMeeting": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Conference"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/virtualMeetingEnabledBy"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Administrator"]
+    ],
+    "http://cmt/hardcopyMailingManifestsPrintedBy": [
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Conference"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Administrator"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/printHardcopyMailingManifests"]
+    ],
+    "http://cmt/endReview": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Review"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/ProgramCommitteeChair"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"]
+    ],
+    "http://cmt/Review": [
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Paper"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Document"]
+    ],
+    "http://cmt/adjustBid": [
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/adjustedBy"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Reviewer"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Bid"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/InverseFunctionalProperty"]
+    ],
+    "http://cmt/enterConferenceDetails": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/detailsEnteredBy"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Administrator"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Conference"]
+    ],
+    "http://cmt/siteURL": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://www.w3.org/2001/XMLSchema/anyURI"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/DatatypeProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Conference"]
+    ],
+    "http://cmt/hasDecision": [
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Paper"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Decision"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"]
+    ],
+    "http://cmt/reviewsPerPaper": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://www.w3.org/2001/XMLSchema/int"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/DatatypeProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Conference"]
+    ],
+    "http://cmt/virtualMeetingEnabledBy": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Conference"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/enableVirtualMeeting"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Administrator"]
+    ],
+    "http://cmt/Conference": [
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Decision"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Preference"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Document"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://www.w3.org/2002/07/owl/Thing"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Bid"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Person"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/ProgramCommittee"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "N1ef90a47e9a94b9a88b57e73833ffc0d"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "Nd0d5cde17c024b0fb87d6e54a81e2820"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "N415618d9901c47689d93044ab78db636"]
+    ],
+    "http://cmt/User": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Person"]
+    ],
+    "http://cmt/hasSubjectArea": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/SubjectArea"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Paper"]
+    ],
+    "http://cmt/adjustedBy": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Reviewer"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/adjustBid"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Bid"]
+    ],
+    "http://cmt/hasConflictOfInterest": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Document"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Person"]
+    ],
+    "http://cmt/ExternalReviewer": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "N5c02ee79dc9e47d0af66ac23147aa154"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Person"],
+        ["http://www.w3.org/2000/01/rdfschema/comment", "An External Reviewer is a person that has been assigned to review a paper for another Reviewer, but is not themselves a Reviewer. "],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Reviewer"]
+    ],
+    "http://cmt/logoURL": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://www.w3.org/2001/XMLSchema/anyURI"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/DatatypeProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Conference"]
+    ],
+    "http://cmt/title": [
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Paper"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/DatatypeProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://www.w3.org/2001/XMLSchema/string"]
+    ],
+    "http://cmt/hasProgramCommitteeMember": [
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/ProgramCommittee"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/ProgramCommitteeMember"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/memberOfProgramCommittee"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"]
+    ],
+    "http://cmt/Acceptance": [
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Decision"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Rejection"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"]
+    ],
+    "http://cmt/Administrator": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/User"]
+    ],
+    "http://cmt/date": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://www.w3.org/2001/XMLSchema/date"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/DatatypeProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Conference"]
+    ],
+    "http://cmt/ConferenceMember": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Person"]
+    ],
+    "http://cmt/Rejection": [
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Decision"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Acceptance"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"]
+    ],
+    "http://cmt/memberOfConference": [
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Conference"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/ConferenceMember"],
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/hasConferenceMember"]
+    ],
+    "http://cmt/name": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/DatatypeProperty"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/FunctionalProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://www.w3.org/2001/XMLSchema/string"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "N510b95586ba847de86c37650e39cde88"]
+    ],
+    "http://cmt/readPaper": [
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/readByReviewer"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Reviewer"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Paper"]
+    ],
+    "http://cmt/PaperAbstract": [
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Paper"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"]
+    ],
+    "http://cmt/AuthorNotReviewer": [
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/Reviewer"],
+        ["http://www.w3.org/2002/07/owl/disjointWith", "http://cmt/ProgramCommitteeMember"],
+        ["http://www.w3.org/2000/01/rdfschema/subClassOf", "http://cmt/Author"]
+    ],
+    "http://cmt/SubjectArea": [["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/Class"]],
+    "http://cmt/reviewerBiddingStartedBy": [
+        ["http://www.w3.org/2002/07/owl/inverseOf", "http://cmt/startReviewerBidding"],
+        ["http://www.w3.org/2000/01/rdfschema/domain", "http://cmt/Conference"],
+        ["http://www.w3.org/1999/02/22rdfsyntaxns/type", "http://www.w3.org/2002/07/owl/ObjectProperty"],
+        ["http://www.w3.org/2000/01/rdfschema/range", "http://cmt/Administrator"]
+    ]
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="bootstrap/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="tab">
+        <button class="tablinks" onclick="openTabs(event, 'load')" id="defaultOpen">Chargement</button>
+        <button class="tablinks" onclick="openTabs(event, 'norm')">Normalisation</button>
+        <button class="tablinks" onclick="openTabs(event, 'align')">Alignement</button>
+        <button class="tablinks" onclick="openTabs(event, 'eval')">Evaluation</button>
+    </div>
+    
+    <!-- tab 1 -->
+    <div id="load" class="tabcontent">
+        <div class="btn-container mt-2">
+            <button class="btn btn-primary" id="dset1">Chargement DS1</button>
+        </div>
+        <div class="table">
+            <div class="container-table d-none mt-4" id="table-dset1"></div>
+        </div>
+
+        <div class="btn-container mt-2">
+            <button class="btn btn-primary" id="dset2">Chargement DS2</button>
+        </div>
+
+        <div class="table">
+            <div class="container-table d-none mt-4" id="table-dset2"></div>
+        </div>
+    </div>
+    
+    <!-- tab 2 -->
+    <div id="norm" class="tabcontent">
+        <div class="btn-container mt-2">
+            <button class="btn btn-primary" id="nset1">Normaliser DS1</button>
+        </div>
+        <div class="table">
+            <div class="container-table d-none mt-4" id="table-nset1"></div>
+        </div>
+
+        <div class="btn-container mt-2">
+            <button class="btn btn-primary" id="nset2">Normaliser DS2</button>
+        </div>
+
+        <div class="table">
+            <div class="container-table d-none mt-4" id="table-nset2"></div>
+        </div>
+    </div>
+    
+    <!-- tab 3 -->
+    <div id="align" class="tabcontent">
+        <div class="btn-container mt-2">
+            <button class="btn btn-primary" id="btn-sim-term">Calculer similaritie terminologique</button>
+        </div>
+        <div class="table">
+            <div class="container-table d-none mt-4" id="table-sim-term"></div>
+        </div>
+    
+        <div class="btn-container">
+            <button class="btn btn-primary" id="btn-sim-str">Calculer similaritie structurelle</button>
+        </div>
+        <div class="table">
+            <div class="container-table d-none mt-4" id="table-sim-str"></div>
+        </div>
+    
+        <div class="btn-container">
+            <button class="btn btn-primary" id="btn-sim-ext">Calculer similaritie extensionnelle</button>
+        </div>
+        <div class="table">
+            <div class="container-table d-none mt-4" id="table-sim-ext"></div>
+        </div>
+    </div>
+
+    <div id="eval" class="tabcontent">
+        <div class="btn-container mt-2">
+            <button class="btn btn-primary" id="btn-eval">Èvaluer</button>
+        </div>
+
+        <div class="container-result m-4">
+            <div id="table" class="container-table"></div>
+            <div class="img"></div>
+        </div>
+    </div>
+    
+
+    <script>
+    function openTabs(evt, tab) {
+        var i, tabcontent, tablinks, scriptLink;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tab).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+    </script>
+    <script src="script/script.js" type="module"></script>
+</body>
+</html>

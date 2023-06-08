@@ -1,0 +1,547 @@
+{
+    "MetaReviewer": [
+        [
+            "comment",
+            "A special type of Reviewer.  There can be any number of Reviewers for a given paper, but only one MetaReviewer.  The MetaReviewer can go over all the reviews submitted for the paper and submit their own review.  Questions for the MetaReviewer can be different from those for a normal Reviewer.  Their role is to ensure that the reviews are good and consistent. The decision to use MetaReviewers is optional, and must be set before paper assignment occurs."
+        ],
+        ["type", "Class"],
+        ["subClassOf", "Reviewer"]
+    ],
+    "Decision": [
+        ["type", "Class"],
+        ["disjointWith", "Bid"],
+        ["disjointWith", "Conference"],
+        ["disjointWith", "ProgramCommittee"],
+        ["disjointWith", "Person"],
+        ["disjointWith", "Preference"],
+        ["disjointWith", "Document"]
+    ],
+    "ProgramCommitteeMember": [
+        ["comment", "The Program Committee consists of all members of the conference except for Authors who are not also Reviewers."],
+        ["disjointWith", "AuthorNotReviewer"],
+        ["subClassOf", "ConferenceMember"],
+        ["type", "Class"],
+        ["subClassOf", "Person"]
+    ],
+    "memberOfProgramCommittee": [
+        ["inverseOf", "hasProgramCommitteeMember"],
+        ["range", "ProgramCommittee"],
+        ["type", "ObjectProperty"],
+        ["domain", "ProgramCommitteeMember"]
+    ],
+    "hasAuthor": [
+        ["type", "FunctionalProperty"],
+        ["inverseOf", "writePaper"],
+        ["type", "ObjectProperty"],
+        ["domain", "Paper"],
+        ["range", "Author"]
+    ],
+    "Document": [
+        ["disjointWith", "Conference"],
+        ["disjointWith", "ProgramCommittee"],
+        ["disjointWith", "Preference"],
+        ["disjointWith", "Person"],
+        ["disjointWith", "Decision"],
+        ["type", "Class"],
+        ["disjointWith", "Bid"]
+    ],
+    "Bid": [
+        ["disjointWith", "Conference"],
+        ["disjointWith", "ProgramCommittee"],
+        ["disjointWith", "Preference"],
+        ["disjointWith", "Person"],
+        ["disjointWith", "Decision"],
+        ["disjointWith", "Document"],
+        ["type", "Class"]
+    ],
+    "readByReviewer": [
+        ["domain", "Paper"],
+        ["type", "ObjectProperty"],
+        ["inverseOf", "readPaper"],
+        ["range", "Reviewer"]
+    ],
+    "writtenBy": [
+        ["type", "ObjectProperty"],
+        ["inverseOf", "writeReview"],
+        ["domain", "Review"],
+        ["range", "Reviewer"],
+        ["type", "FunctionalProperty"]
+    ],
+    "ProgramCommittee": [
+        ["disjointWith", "Preference"],
+        ["disjointWith", "Document"],
+        ["type", "Class"],
+        ["disjointWith", "Bid"],
+        ["disjointWith", "Person"],
+        ["disjointWith", "Conference"],
+        ["disjointWith", "Decision"]
+    ],
+    "reviewCriteriaEnteredBy": [
+        ["inverseOf", "enterReviewCriteria"],
+        ["domain", "Conference"],
+        ["type", "ObjectProperty"],
+        ["range", "Administrator"]
+    ],
+    "hasBid": [
+        ["range", "Bid"],
+        ["type", "ObjectProperty"],
+        ["domain", "Paper"],
+        ["type", "InverseFunctionalProperty"]
+    ],
+    "assignReviewer": [
+        ["type", "ObjectProperty"],
+        ["range", "Reviewer"],
+        ["inverseOf", "assignedByAdministrator"],
+        ["domain", "Administrator"]
+    ],
+    "Reviewer": [
+        ["disjointWith", "ExternalReviewer"],
+        ["disjointWith", "AuthorNotReviewer"],
+        ["subClassOf", "ConferenceMember"],
+        ["subClassOf", "User"],
+        ["type", "Class"]
+    ],
+    "startReviewerBidding": [
+        ["type", "ObjectProperty"],
+        ["domain", "Administrator"],
+        ["inverseOf", "reviewerBiddingStartedBy"],
+        ["range", "Conference"]
+    ],
+    "email": [
+        ["type", "DatatypeProperty"],
+        ["range", "string"],
+        ["domain", "Person"]
+    ],
+    "acceptPaper": [
+        ["type", "FunctionalProperty"],
+        ["inverseOf", "acceptedBy"],
+        ["domain", "Administrator"],
+        ["type", "ObjectProperty"],
+        ["type", "InverseFunctionalProperty"],
+        ["range", "Paper"]
+    ],
+    "assignedByReviewer": [
+        ["inverseOf", "assignExternalReviewer"],
+        ["type", "ObjectProperty"],
+        ["range", "Reviewer"],
+        ["type", "FunctionalProperty"],
+        ["domain", "ExternalReviewer"]
+    ],
+    "acceptedBy": [
+        ["type", "FunctionalProperty"],
+        ["range", "Administrator"],
+        ["type", "ObjectProperty"],
+        ["type", "InverseFunctionalProperty"],
+        ["domain", "Paper"],
+        ["inverseOf", "acceptPaper"]
+    ],
+    "addProgramCommitteeMember": [
+        ["domain", "Administrator"],
+        ["type", "InverseFunctionalProperty"],
+        ["range", "ProgramCommitteeMember"],
+        ["inverseOf", "addedBy"],
+        ["type", "ObjectProperty"]
+    ],
+    "Chairman": [
+        ["subClassOf", "Person"],
+        ["equivalentClass", "N94998e25a8cf4c23a2898f39027a4f55"],
+        ["type", "Class"]
+    ],
+    "markConflictOfInterest": [
+        ["type", "ObjectProperty"],
+        ["range", "Paper"],
+        [
+            "comment",
+            "In CMT terms, a \u2018Conflict of Interest\u2019 is an association between a specific Reviewer and a specific Paper that states there is a conflict of interest between that Reviewer and that paper. Conflicts can be marked by Authors (during paper submission) or by Reviewers (in Phase 2) or by Chairmen (in Phase 3).Based on that conflict, the reviewer will not be able to bid on the paper, be assigned to that paper (either automatically by the system or manually by a Chairman) or view review submissions for that paper."
+        ],
+        ["domain", "Na1f95cfc17db4851a58191a860d4bdc0"]
+    ],
+    "paperAssignmentToolsRunBy": [
+        ["domain", "Conference"],
+        ["range", "Administrator"],
+        ["type", "ObjectProperty"],
+        ["inverseOf", "runPaperAssignmentTools"]
+    ],
+    "assignExternalReviewer": [
+        ["type", "InverseFunctionalProperty"],
+        ["range", "ExternalReviewer"],
+        ["inverseOf", "assignedByReviewer"],
+        ["type", "ObjectProperty"],
+        ["domain", "Reviewer"]
+    ],
+    "AssociatedChair": [
+        ["subClassOf", "ConferenceMember"],
+        ["type", "Class"],
+        ["disjointWith", "ConferenceChair"]
+    ],
+    "detailsEnteredBy": [
+        ["type", "ObjectProperty"],
+        ["range", "Administrator"],
+        ["domain", "Conference"],
+        ["inverseOf", "enterConferenceDetails"]
+    ],
+    "hasBeenAssigned": [
+        ["type", "ObjectProperty"],
+        ["domain", "Reviewer"],
+        ["inverseOf", "assignedTo"],
+        ["range", "Paper"]
+    ],
+    "readByMetaReviewer": [
+        ["range", "MetaReviewer"],
+        ["type", "ObjectProperty"],
+        ["domain", "Paper"],
+        ["type", "FunctionalProperty"]
+    ],
+    "acceptsHardcopySubmissions": [
+        ["domain", "Conference"],
+        ["type", "DatatypeProperty"],
+        ["type", "FunctionalProperty"],
+        ["range", "boolean"]
+    ],
+    "setMaxPapers": [
+        ["range", "ProgramCommitteeMember"],
+        ["domain", "Administrator"],
+        ["type", "ObjectProperty"]
+    ],
+    "rejectPaper": [
+        ["inverseOf", "rejectedBy"],
+        ["type", "ObjectProperty"],
+        ["type", "InverseFunctionalProperty"],
+        ["range", "Paper"],
+        ["domain", "Administrator"]
+    ],
+    "paperID": [
+        ["type", "DatatypeProperty"],
+        ["type", "FunctionalProperty"],
+        ["range", "unsignedLong"],
+        ["domain", "Paper"]
+    ],
+    "writeReview": [
+        ["range", "Review"],
+        ["type", "ObjectProperty"],
+        ["type", "InverseFunctionalProperty"],
+        ["domain", "Reviewer"],
+        ["inverseOf", "writtenBy"]
+    ],
+    "Paper": [
+        ["subClassOf", "N180708daafc7402b8c76e515105bdbf5"],
+        ["subClassOf", "Ne66526681ac94253a7802a20d3a0c144"],
+        ["subClassOf", "Document"],
+        ["disjointWith", "Review"],
+        ["subClassOf", "Nf2a575ab182d4c23a98980f47b99d78e"],
+        ["subClassOf", "N9758e772c98c4fbf8ea96f6080bbbd0a"],
+        ["type", "Class"]
+    ],
+    "rejectedBy": [
+        ["type", "FunctionalProperty"],
+        ["type", "ObjectProperty"],
+        ["inverseOf", "rejectPaper"],
+        ["range", "Administrator"],
+        ["domain", "Paper"]
+    ],
+    "hasConferenceMember": [
+        ["domain", "Conference"],
+        ["type", "ObjectProperty"],
+        ["range", "ConferenceMember"],
+        ["inverseOf", "memberOfConference"]
+    ],
+    "runPaperAssignmentTools": [
+        ["inverseOf", "paperAssignmentToolsRunBy"],
+        ["domain", "Administrator"],
+        ["range", "Conference"],
+        ["type", "ObjectProperty"]
+    ],
+    "PaperFullVersion": [
+        ["type", "Class"],
+        ["subClassOf", "Paper"]
+    ],
+    "submitPaper": [
+        ["range", "Paper"],
+        ["domain", "Author"],
+        ["type", "ObjectProperty"]
+    ],
+    "paperAssignmentFinalizedBy": [
+        ["range", "Administrator"],
+        ["inverseOf", "finalizePaperAssignment"],
+        ["type", "ObjectProperty"],
+        ["domain", "Conference"]
+    ],
+    "ProgramCommitteeChair": [
+        ["type", "Class"],
+        ["subClassOf", "ProgramCommitteeMember"]
+    ],
+    "hasCoauthor": [
+        ["range", "Coauthor"],
+        ["type", "ObjectProperty"],
+        ["domain", "Paper"],
+        ["inverseOf", "cowritePaper"]
+    ],
+    "addedBy": [
+        ["type", "FunctionalProperty"],
+        ["inverseOf", "addProgramCommitteeMember"],
+        ["domain", "ProgramCommitteeMember"],
+        ["range", "Administrator"],
+        ["type", "ObjectProperty"]
+    ],
+    "maxPapers": [
+        ["type", "DatatypeProperty"],
+        ["type", "FunctionalProperty"],
+        ["range", "int"],
+        ["domain", "ProgramCommitteeMember"]
+    ],
+    "Coauthor": [
+        ["subClassOf", "Author"],
+        ["type", "Class"]
+    ],
+    "printHardcopyMailingManifests": [
+        ["type", "ObjectProperty"],
+        ["inverseOf", "hardcopyMailingManifestsPrintedBy"],
+        ["domain", "Administrator"],
+        ["range", "Conference"]
+    ],
+    "finalizePaperAssignment": [
+        ["inverseOf", "paperAssignmentFinalizedBy"],
+        ["range", "Conference"],
+        ["type", "ObjectProperty"],
+        ["domain", "Administrator"]
+    ],
+    "Person": [
+        ["disjointWith", "Conference"],
+        ["disjointWith", "ProgramCommittee"],
+        ["disjointWith", "Decision"],
+        ["disjointWith", "Preference"],
+        ["type", "Class"],
+        ["disjointWith", "Document"],
+        ["disjointWith", "Bid"]
+    ],
+    "ConferenceChair": [
+        ["type", "Class"],
+        ["disjointWith", "AssociatedChair"],
+        ["subClassOf", "ConferenceMember"]
+    ],
+    "assignedByAdministrator": [
+        ["type", "ObjectProperty"],
+        ["domain", "Reviewer"],
+        ["range", "Administrator"],
+        ["inverseOf", "assignReviewer"]
+    ],
+    "writePaper": [
+        ["type", "ObjectProperty"],
+        ["inverseOf", "hasAuthor"],
+        ["type", "InverseFunctionalProperty"],
+        ["range", "Paper"],
+        ["domain", "Author"]
+    ],
+    "Preference": [
+        ["disjointWith", "Person"],
+        ["disjointWith", "Decision"],
+        ["type", "Class"],
+        ["disjointWith", "Document"],
+        ["disjointWith", "Bid"],
+        ["disjointWith", "Conference"],
+        ["disjointWith", "ProgramCommittee"]
+    ],
+    "Author": [
+        ["subClassOf", "ConferenceMember"],
+        ["subClassOf", "User"],
+        ["type", "Class"]
+    ],
+    "MetaReview": [
+        ["type", "Class"],
+        ["subClassOf", "Review"]
+    ],
+    "enterReviewCriteria": [
+        ["range", "Conference"],
+        ["inverseOf", "reviewCriteriaEnteredBy"],
+        ["type", "ObjectProperty"],
+        ["domain", "Administrator"]
+    ],
+    "assignedTo": [
+        ["domain", "Paper"],
+        ["inverseOf", "hasBeenAssigned"],
+        ["range", "Reviewer"],
+        ["type", "ObjectProperty"]
+    ],
+    "cowritePaper": [
+        ["inverseOf", "hasCoauthor"],
+        ["type", "ObjectProperty"],
+        ["range", "Paper"],
+        ["domain", "Coauthor"]
+    ],
+    "enableVirtualMeeting": [
+        ["range", "Conference"],
+        ["inverseOf", "virtualMeetingEnabledBy"],
+        ["type", "ObjectProperty"],
+        ["domain", "Administrator"]
+    ],
+    "hardcopyMailingManifestsPrintedBy": [
+        ["domain", "Conference"],
+        ["type", "ObjectProperty"],
+        ["range", "Administrator"],
+        ["inverseOf", "printHardcopyMailingManifests"]
+    ],
+    "endReview": [
+        ["range", "Review"],
+        ["domain", "ProgramCommitteeChair"],
+        ["type", "ObjectProperty"]
+    ],
+    "Review": [
+        ["disjointWith", "Paper"],
+        ["type", "Class"],
+        ["subClassOf", "Document"]
+    ],
+    "adjustBid": [
+        ["inverseOf", "adjustedBy"],
+        ["domain", "Reviewer"],
+        ["type", "ObjectProperty"],
+        ["range", "Bid"],
+        ["type", "InverseFunctionalProperty"]
+    ],
+    "enterConferenceDetails": [
+        ["type", "ObjectProperty"],
+        ["inverseOf", "detailsEnteredBy"],
+        ["domain", "Administrator"],
+        ["range", "Conference"]
+    ],
+    "siteURL": [
+        ["range", "anyURI"],
+        ["type", "DatatypeProperty"],
+        ["type", "FunctionalProperty"],
+        ["domain", "Conference"]
+    ],
+    "hasDecision": [
+        ["domain", "Paper"],
+        ["range", "Decision"],
+        ["type", "FunctionalProperty"],
+        ["type", "ObjectProperty"]
+    ],
+    "reviewsPerPaper": [
+        ["range", "int"],
+        ["type", "DatatypeProperty"],
+        ["type", "FunctionalProperty"],
+        ["domain", "Conference"]
+    ],
+    "virtualMeetingEnabledBy": [
+        ["type", "ObjectProperty"],
+        ["domain", "Conference"],
+        ["inverseOf", "enableVirtualMeeting"],
+        ["range", "Administrator"]
+    ],
+    "Conference": [
+        ["disjointWith", "Decision"],
+        ["disjointWith", "Preference"],
+        ["disjointWith", "Document"],
+        ["subClassOf", "Thing"],
+        ["disjointWith", "Bid"],
+        ["disjointWith", "Person"],
+        ["type", "Class"],
+        ["disjointWith", "ProgramCommittee"],
+        ["subClassOf", "N1ef90a47e9a94b9a88b57e73833ffc0d"],
+        ["subClassOf", "Nd0d5cde17c024b0fb87d6e54a81e2820"],
+        ["subClassOf", "N415618d9901c47689d93044ab78db636"]
+    ],
+    "User": [
+        ["type", "Class"],
+        ["subClassOf", "Person"]
+    ],
+    "hasSubjectArea": [
+        ["type", "ObjectProperty"],
+        ["range", "SubjectArea"],
+        ["domain", "Paper"]
+    ],
+    "adjustedBy": [
+        ["type", "FunctionalProperty"],
+        ["type", "ObjectProperty"],
+        ["range", "Reviewer"],
+        ["inverseOf", "adjustBid"],
+        ["domain", "Bid"]
+    ],
+    "hasConflictOfInterest": [
+        ["type", "ObjectProperty"],
+        ["range", "Document"],
+        ["domain", "Person"]
+    ],
+    "ExternalReviewer": [
+        ["type", "Class"],
+        ["subClassOf", "N5c02ee79dc9e47d0af66ac23147aa154"],
+        ["subClassOf", "Person"],
+        ["comment", "An External Reviewer is a person that has been assigned to review a paper for another Reviewer, but is not themselves a Reviewer. "],
+        ["disjointWith", "Reviewer"]
+    ],
+    "logoURL": [
+        ["range", "anyURI"],
+        ["type", "DatatypeProperty"],
+        ["type", "FunctionalProperty"],
+        ["domain", "Conference"]
+    ],
+    "title": [
+        ["domain", "Paper"],
+        ["type", "DatatypeProperty"],
+        ["type", "FunctionalProperty"],
+        ["range", "string"]
+    ],
+    "hasProgramCommitteeMember": [
+        ["domain", "ProgramCommittee"],
+        ["range", "ProgramCommitteeMember"],
+        ["inverseOf", "memberOfProgramCommittee"],
+        ["type", "ObjectProperty"]
+    ],
+    "Acceptance": [
+        ["subClassOf", "Decision"],
+        ["disjointWith", "Rejection"],
+        ["type", "Class"]
+    ],
+    "Administrator": [
+        ["type", "Class"],
+        ["subClassOf", "User"]
+    ],
+    "date": [
+        ["range", "date"],
+        ["type", "DatatypeProperty"],
+        ["domain", "Conference"]
+    ],
+    "ConferenceMember": [
+        ["type", "Class"],
+        ["subClassOf", "Person"]
+    ],
+    "Rejection": [
+        ["subClassOf", "Decision"],
+        ["disjointWith", "Acceptance"],
+        ["type", "Class"]
+    ],
+    "memberOfConference": [
+        ["range", "Conference"],
+        ["type", "ObjectProperty"],
+        ["domain", "ConferenceMember"],
+        ["inverseOf", "hasConferenceMember"]
+    ],
+    "name": [
+        ["type", "DatatypeProperty"],
+        ["type", "FunctionalProperty"],
+        ["range", "string"],
+        ["domain", "N510b95586ba847de86c37650e39cde88"]
+    ],
+    "readPaper": [
+        ["inverseOf", "readByReviewer"],
+        ["type", "ObjectProperty"],
+        ["domain", "Reviewer"],
+        ["range", "Paper"]
+    ],
+    "PaperAbstract": [
+        ["subClassOf", "Paper"],
+        ["type", "Class"]
+    ],
+    "AuthorNotReviewer": [
+        ["type", "Class"],
+        ["disjointWith", "Reviewer"],
+        ["disjointWith", "ProgramCommitteeMember"],
+        ["subClassOf", "Author"]
+    ],
+    "SubjectArea": [["type", "Class"]],
+    "reviewerBiddingStartedBy": [
+        ["inverseOf", "startReviewerBidding"],
+        ["domain", "Conference"],
+        ["type", "ObjectProperty"],
+        ["range", "Administrator"]
+    ]
+}
